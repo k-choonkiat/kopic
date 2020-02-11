@@ -3,30 +3,54 @@
   <img class=background src= "../assets/tenor.gif">
   <v-container>
   <v-flex xs7 offset-xs5 offset-md5 offset-lg5>
+  <v-row align="center" justify="center">
  <v-card
     class="mx-auto"
-    max-width="560"
-    max-height= "480"
+    min-width="300"
+    min-height= "300"
+    elevation = 24
     hover = true  
     raised = 24
   >
     <v-img
       class="white--text align-end justify-center" 
-      height="150px"
-      width="150px"
+      height="250px"
+      width="300px"
+      background-position = "right"
       src="../assets/kopi.png">
     </v-img>
     <v-card-text>
 
-      <p class="display-1 text--primary">
+      <v-card-title class="headline">
         Kopi C
-      </p>
-      <p>adjective</p>
-      <form>
-      <label for="email1">Sign up here!</label><br>
-      <input type="text" border="solid" placeholder="lim@kopic.com" id="email1"/> <br>
-      <button class="button">Subscribe now!</button>
-      </form>
+      </v-card-title>
+      <v-card-subtitle>Subscribe here!</v-card-subtitle>
+        <v-form
+    ref="form"
+    v-model="valid"
+    lazy-validation
+  >
+
+
+    <v-text-field
+      v-model="email"
+      :rules="emailRules"
+      label="E-mail"
+      required
+    ></v-text-field>
+
+
+    <v-btn
+      :disabled="!valid"
+      color="success"
+      class="mr-4"
+      @click="validate"
+    >
+      Submit
+    </v-btn>
+
+
+  </v-form>
     </v-card-text>
     <v-card-actions>
       <v-btn
@@ -37,6 +61,7 @@
       </v-btn>
     </v-card-actions>
   </v-card>
+  </v-row>
   </v-flex>
   </v-container>
   </div>
